@@ -1,0 +1,22 @@
+.wrapper {
+  /* min-width: 320px;
+  max-width: 1140px;
+  margin: 0 auto; */
+
+  /* display: grid; */
+  /* grid-template-columns: 1fr; */
+  /* grid-template-rows: 60px 1fr; */
+  /* grid-template-rows: 60px minmax(auto); */
+
+  /* grid-template-areas:
+    'header'
+    'main'; */
+
+  /* background: rgb(255, 200, 200); */
+  /* background: #fed800; */
+  /* height: 100vh;
+  overflow: auto; */
+}
+.sectionChange {
+  grid-area: main;
+}

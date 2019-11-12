@@ -1,0 +1,42 @@
+.sectionPage {
+  /* grid-area: main; */
+  background: #ccc;
+  /* height: 100vh; */
+  min-height: calc(100vh - 49px);
+  /* overflow: auto; */
+  /* display: flex; */
+}
+.container {
+  min-width: 320px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+form {
+  display: flex;
+  align-items: center;
+}
+.inputForm {
+  padding: 10px;
+  /* min-width: 180px; */
+  font-size: 16px;
+  margin: 0 20px 0 0;
+  border: none;
+  border-radius: 3px;
+  /* box-sizing: border-box; */
+}
+.inputForm:focus {
+  border: 2px solid rgb(0, 238, 255);
+}
+.btnForm {
+  cursor: pointer;
+  padding: 10px 30px;
+  border: none;
+  border-radius: 3px;
+  background: rgb(169, 252, 255);
+}
+
+.btnForm:focus,
+.btnForm:hover {
+  transition: 0.2s;
+  background: rgb(132, 251, 255);
+}

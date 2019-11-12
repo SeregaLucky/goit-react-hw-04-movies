@@ -1,0 +1,40 @@
+.sectionPage {
+  background: rgb(188, 228, 255);
+  min-height: calc(100vh - 49px);
+  padding: 20px 0;
+}
+.container {
+  min-width: 320px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.btnBack {
+  cursor: pointer;
+  border: none;
+  border-radius: 3px;
+  background: rgb(223, 96, 255);
+  padding: 10px 20px;
+}
+.listMoreInfo {
+  display: flex;
+  padding: 20px 0;
+}
+.itemMoreInfo:not(:last-child) {
+  margin: 0 20px 0 0;
+}
+.linkMoreInfo {
+  padding: 10px 20px;
+}
+.linkMoreInfo:focus,
+.linkMoreInfo:hover {
+  background: rgba(46, 46, 46, 0.5);
+}
+.linkMoreInfo.linkMoreInfoActive {
+  background: rgb(46, 46, 46);
+  color: #fff;
+}
+
+.circle {
+  transform-origin: center;
+  transform: rotate(-90deg);
+}
