@@ -77,6 +77,7 @@ class MoviesPage extends Component {
               value={value}
               onChange={this.changeValue}
               name="query"
+              placeholder="Write..."
             />
             <button type="submit" className={styles.btnForm}>
               Search

@@ -1,10 +1,11 @@
 .sectionPage {
   /* grid-area: main; */
-  background: #ccc;
+  background: rgb(255, 200, 200);
   /* height: 100vh; */
   min-height: calc(100vh - 49px);
   /* overflow: auto; */
   /* display: flex; */
+  padding: 20px 0;
 }
 .container {
   min-width: 320px;
@@ -14,29 +15,34 @@
 form {
   display: flex;
   align-items: center;
+  justify-content: center;
 }
 .inputForm {
-  padding: 10px;
+  /* padding: 10px; */
+  padding: 0 10px;
+  height: 40px;
   /* min-width: 180px; */
   font-size: 16px;
   margin: 0 20px 0 0;
   border: none;
   border-radius: 3px;
-  /* box-sizing: border-box; */
 }
 .inputForm:focus {
-  border: 2px solid rgb(0, 238, 255);
+  box-shadow: inset 0px 0px 0px 2px #87ceeb;
 }
 .btnForm {
   cursor: pointer;
-  padding: 10px 30px;
+  /* padding: 10px 30px; */
+  padding: 0 30px;
+  height: 40px;
   border: none;
   border-radius: 3px;
-  background: rgb(169, 252, 255);
+  background: rgb(13, 66, 180);
+  color: #fff;
 }
 
 .btnForm:focus,
 .btnForm:hover {
   transition: 0.2s;
-  background: rgb(132, 251, 255);
+  background: rgb(0, 48, 153);
 }

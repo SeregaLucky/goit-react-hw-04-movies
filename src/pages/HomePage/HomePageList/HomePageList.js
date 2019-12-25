@@ -14,14 +14,15 @@ const HomePageList = ({ allTrendingToday, location }) => {
   return (
     <ul className={styles.list}>
       {allTrendingToday.map(trend => (
-        <li key={trend.id}>
+        <li key={trend.id} className={styles.item}>
           <Link
             to={{
               pathname: `${routes.MOVIES}/${trend.id}`,
               state: { from: location },
             }}
+            className={styles.link}
           >
-            {trend.title}
+            <span className={styles.linkSympol}>&gt;</span> {trend.title}
           </Link>
         </li>
       ))}

@@ -8,24 +8,22 @@ import styles from './MoviesPageList.module.css';
 /*
  * COMPONENT
  */
-const MoviesPageList = ({ allSearchMovies, location, match }) => {
-  return (
-    <ul className={styles.list}>
-      {allSearchMovies.map(movy => (
-        <li key={movy.id}>
-          <Link
-            to={{
-              pathname: `${match.url}/${movy.id}`,
-              state: { from: location },
-            }}
-          >
-            {movy.title}
-          </Link>
-        </li>
-      ))}
-    </ul>
-  );
-};
+const MoviesPageList = ({ allSearchMovies, location, match }) => (
+  <ul className={styles.list}>
+    {allSearchMovies.map(movy => (
+      <li key={movy.id}>
+        <Link
+          to={{
+            pathname: `${match.url}/${movy.id}`,
+            state: { from: location },
+          }}
+        >
+          {movy.title}
+        </Link>
+      </li>
+    ))}
+  </ul>
+);
 
 MoviesPageList.propTypes = {
   allSearchMovies: T.arrayOf(

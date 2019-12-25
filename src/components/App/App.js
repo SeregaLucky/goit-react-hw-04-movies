@@ -14,28 +14,23 @@ import MovieDetailsPage from '../../pages/MovieDetailsPage/MovieDetailsPage';
 /*
  * COMPONENT
  */
-const App = () => {
-  return (
-    <BrowserRouter>
-      <div className={styles.wrapper}>
-        <Navigation />
+const App = () => (
+  <BrowserRouter>
+    <div className={styles.wrapper}>
+      <Navigation />
 
-        <div className={styles.sectionChange}>
-          <Switch>
-            <Route exact path={routes.HOME} component={HomePage} />
+      <div className={styles.sectionChange}>
+        <Switch>
+          <Route exact path={routes.HOME} component={HomePage} />
 
-            <Route
-              path={routes.MOVIES_MODIES_ID}
-              component={MovieDetailsPage}
-            />
-            <Route path={routes.MOVIES} component={MoviesPage} />
+          <Route path={routes.MOVIES_MODIES_ID} component={MovieDetailsPage} />
+          <Route path={routes.MOVIES} component={MoviesPage} />
 
-            <Redirect to={routes.HOME} />
-          </Switch>
-        </div>
+          <Redirect to={routes.HOME} />
+        </Switch>
       </div>
-    </BrowserRouter>
-  );
-};
+    </div>
+  </BrowserRouter>
+);
 
 export default App;

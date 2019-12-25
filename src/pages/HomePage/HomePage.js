@@ -40,7 +40,7 @@ class HomePage extends Component {
 
     return (
       <section className={styles.sectionPage}>
-        <div className={styles.container}>
+        <div className={`${styles.container} ${styles.containerPadding}`}>
           <h2 className={styles.titlePage}>Trending today</h2>
 
           {allTrendingToday.length > 0 && (

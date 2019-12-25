@@ -2,7 +2,9 @@
 import React, { Component } from 'react';
 import { NavLink, Switch, Route } from 'react-router-dom';
 import T from 'prop-types';
+import { CircularProgressbar, buildStyles } from 'react-circular-progressbar';
 /* import - CSS */
+import 'react-circular-progressbar/dist/styles.css';
 import styles from './MovieDetailsPage.module.css';
 /* import - API */
 import { moviesAPI } from '../../api/api';
@@ -34,9 +36,7 @@ class MovieDetailsPage extends Component {
 
     moviesAPI
       .getSearchMovy(movieId)
-      .then(data => {
-        this.setState({ movie: data, error: null });
-      })
+      .then(data => this.setState({ movie: data, error: null }))
       .catch(error => this.setState({ error }));
   }
 
@@ -47,7 +47,6 @@ class MovieDetailsPage extends Component {
       history.push({
         ...location.state.from,
       });
-
       return;
     }
 
@@ -69,39 +68,15 @@ class MovieDetailsPage extends Component {
       return null;
     };
 
-    const obj = {};
-    const makeCircle2 = (pesent, colorStroke, wh = 80, strokeWidth = 10) => {
-      const cx = wh / 2;
-      const cy = wh / 2;
-
-      const radius = cx + 10 - strokeWidth * 2;
-
-      const strokeDasharray = 2 * Math.PI * radius;
-
-      const strokeDashoffset =
-        strokeDasharray - (pesent / 100) * strokeDasharray;
-
-      obj.width = wh;
-      obj.height = wh;
-      obj.strokeWidth = strokeWidth;
-      obj.colorStroke = colorStroke;
-      obj.cx = cx;
-      obj.cy = cy;
-      obj.radius = radius;
-      obj.strokeDasharray = strokeDasharray;
-      obj.strokeDashoffset = strokeDashoffset;
-
-      return obj;
-    };
-
     let needUrl;
     let allGenres;
+    let percentage;
     if (movie) {
       needUrl = checkPostImg(movie.poster_path, movie.backdrop_path);
 
       allGenres = movie.genres.map(genr => genr.name).join(', ');
 
-      makeCircle2(movie.vote_average * 10, '#fff');
+      percentage = movie.vote_average * 10;
     }
 
     return (
@@ -114,37 +89,46 @@ class MovieDetailsPage extends Component {
                 type="button"
                 onClick={this.handleGoBack}
               >
-                Go back
+                &larr; Go back
               </button>
 
-              {needUrl && (
-                <img src={`https://image.tmdb.org/t/p/w300${needUrl}`} alt="" />
-              )}
+              <div className={styles.infoMain}>
+                {needUrl && (
+                  <div className={styles.posterImgCont}>
+                    <img
+                      src={`https://image.tmdb.org/t/p/w300${needUrl}`}
+                      alt=""
+                    />
+                  </div>
+                )}
 
-              <h3>
-                {movie.title}{' '}
-                {movie.release_date && movie.release_date.slice(0, 4)}
-              </h3>
+                <div className={styles.textMain}>
+                  <h3 className={styles.title}>
+                    {movie.title}{' '}
+                    {movie.release_date && movie.release_date.slice(0, 4)}
+                  </h3>
+                  <div style={{ width: 80 }}>
+                    <CircularProgressbar
+                      value={percentage}
+                      text={`${percentage}%`}
+                      strokeWidth={14}
+                      styles={buildStyles({
+                        textColor: '#fff',
+                        // textColor: `hsl(${percentage}, 100%, 50%)`,
+                        trailColor: '#fff',
+                        // pathColor: `rgba(8, 198, 8, ${percentage / 100})`,
+                        pathColor: `hsl(${percentage}, 100%, 50%)`,
+                        textSize: '28px',
+                        strokeLinecap: 'butt',
+                      })}
+                    />
+                  </div>
 
-              <svg className="bar" width={obj.width} height={obj.height}>
-                <circle
-                  className={styles.circle}
-                  stroke={obj.colorStroke}
-                  fill="transparent"
-                  strokeWidth={obj.strokeWidth}
-                  cx={obj.cx}
-                  cy={obj.cy}
-                  r={obj.radius}
-                  strokeDasharray={obj.strokeDasharray}
-                  strokeDashoffset={obj.strokeDashoffset}
-                />
-              </svg>
-
-              <p>{movie.vote_average}/10</p>
-
-              <p>{movie.overview}</p>
-
-              <p>Genres: {allGenres}.</p>
+                  {/* <p>{movie.vote_average}/10</p> */}
+                  <p>{movie.overview}</p>
+                  <p>Genres: {allGenres}.</p>
+                </div>
+              </div>
 
               <ul className={styles.listMoreInfo}>
                 <li className={styles.itemMoreInfo}>
