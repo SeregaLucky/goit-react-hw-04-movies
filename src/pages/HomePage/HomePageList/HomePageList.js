@@ -10,25 +10,23 @@ import routes from '../../../routes';
 /*
  * COMPONENT
  */
-const HomePageList = ({ allTrendingToday, location }) => {
-  return (
-    <ul className={styles.list}>
-      {allTrendingToday.map(trend => (
-        <li key={trend.id} className={styles.item}>
-          <Link
-            to={{
-              pathname: `${routes.MOVIES}/${trend.id}`,
-              state: { from: location },
-            }}
-            className={styles.link}
-          >
-            <span className={styles.linkSympol}>&gt;</span> {trend.title}
-          </Link>
-        </li>
-      ))}
-    </ul>
-  );
-};
+const HomePageList = ({ allTrendingToday, location }) => (
+  <ul className={styles.list}>
+    {allTrendingToday.map(trend => (
+      <li key={trend.id} className={styles.item}>
+        <Link
+          to={{
+            pathname: `${routes.MOVIES}/${trend.id}`,
+            state: { from: location },
+          }}
+          className={styles.link}
+        >
+          <span className={styles.linkSympol}>&gt;</span> {trend.title}
+        </Link>
+      </li>
+    ))}
+  </ul>
+);
 
 HomePageList.propTypes = {
   allTrendingToday: T.arrayOf(
