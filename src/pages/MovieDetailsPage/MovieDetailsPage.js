@@ -107,7 +107,7 @@ class MovieDetailsPage extends Component {
                     {movie.title}{' '}
                     {movie.release_date && movie.release_date.slice(0, 4)}
                   </h3>
-                  <div style={{ width: 80 }}>
+                  <div className={styles.contProgBar}>
                     <CircularProgressbar
                       value={percentage}
                       text={`${percentage}%`}
