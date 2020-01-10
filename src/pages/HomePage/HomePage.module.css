@@ -1,7 +1,11 @@
 .sectionPage {
   /* grid-area: main; */
-  background: rgb(250, 240, 195);
+  /* background: linear-gradient(86deg, #1e303a, #395f71); */
+  /* background: #f6f6f6; */
+  background-color: #fdd700;
+  background-image: url(./motpath.svg);
   min-height: calc(100vh - 49px);
+  padding: 20px 0;
 }
 .container {
   min-width: 320px;
@@ -15,4 +19,5 @@
   margin: 0 0 20px 0;
   text-align: center;
   letter-spacing: 0.05em;
+  text-transform: uppercase;
 }

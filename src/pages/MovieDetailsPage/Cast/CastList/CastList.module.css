@@ -1,4 +1,10 @@
 .listCast {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.itemCast {
+  padding: 0 4px;
 }
 .itemCast:not(:last-child) {
   margin: 0 0 20px 0;

@@ -1,6 +1,7 @@
 .sectionPage {
   /* grid-area: main; */
-  background: rgb(255, 200, 200);
+  /* background: rgb(255, 200, 200); */
+  background: #f6f6f6;
   /* height: 100vh; */
   min-height: calc(100vh - 49px);
   /* overflow: auto; */

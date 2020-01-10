@@ -20,6 +20,8 @@
   display: block;
   padding: 14px 20px;
   color: #fff;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
 }
 .link:focus,
 .link:hover {
